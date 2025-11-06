@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph, Hollander & Craft - Premier Heartland Law Firm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1A2B4A;
+            --gold: #C9A961;
+            --warm-white: #FDFBF7;
+            --slate: #5A6C7D;
+            --light-gold: #E8DCC8;
+            --dark-navy: #0F1923;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--navy);
+            background: var(--warm-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--navy);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 24px solid transparent;
+            border-right: 24px solid transparent;
+            border-bottom: 20px solid var(--gold);
+            bottom: 8px;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            top: 6px;
+            opacity: 0.6;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-firm-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-tagline {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--dark-navy);
+            padding: 0.75rem 1.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F5F0E8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(26, 43, 74, 0.03) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(201, 169, 97, 0.1);
+            border-radius: 2px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark-navy);
+            font-weight: 600;
+        }
+
+        .hero-title .highlight {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--slate);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.5;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--navy);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 43, 74, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--navy);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--slate);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            color: var(--slate);
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+
+        /* Practice Areas Section */
+        .practice-areas {
+            padding: 6rem 3rem;
+            background: white;
+            position: relative;
+        }
+
+        .practice-areas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .section-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--dark-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--slate);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .practice-card {
+            background: var(--warm-white);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .practice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .practice-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .practice-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--navy), var(--slate));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .practice-title {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .practice-description {
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .practice-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .practice-link:hover {
+            gap: 1rem;
+        }
+
+        .practice-link::after {
+            content: '→';
+        }
+
+        /* Locations Bar */
+        .locations-bar {
+            background: var(--navy);
+            color: white;
+            padding: 2.5rem 3rem;
+        }
+
+        .locations-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .locations-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .locations-list {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .location-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .location-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .location-phone {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .location-phone:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .practice-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .locations-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <div class="logo-firm-name">Joseph, Hollander & Craft</div>
+                    <div class="logo-tagline">In Omnia Paratus</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#practice-areas">Practice Areas</a></li>
+                <li><a href="#attorneys">Our Team</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#contact" class="cta-button">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-label">Premier Heartland Law Firm</div>
+                <h1 class="hero-title">Excellence in Every <span class="highlight">Outcome</span></h1>
+                <p class="hero-subtitle">Protecting what matters most across Kansas and Missouri</p>
+                <p class="hero-description">
+                    For over two decades, Joseph, Hollander & Craft has delivered sophisticated legal counsel 
+                    in criminal defense, family law, and civil litigation. Our team-based approach ensures you 
+                    receive the strategic guidance needed when the stakes are highest.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Schedule Consultation</a>
+                    <a href="#attorneys" class="btn-secondary">Meet Our Team</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years</div>
+                    <div class="stat-description">Serving the Heartland with distinction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Attorneys</div>
+                    <div class="stat-description">Experienced advocates ready for you</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Locations</div>
+                    <div class="stat-description">Across Kansas and Missouri</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Commitment</div>
+                    <div class="stat-description">To your success and wellbeing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas Section -->
+    <section class="practice-areas" id="practice-areas">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-label">How We Serve</div>
+                <h2 class="section-title">Practice Areas</h2>
+                <p class="section-subtitle">
+                    Strategic counsel across the legal matters that impact your life, family, and freedom
+                </p>
+            </div>
+            <div class="practice-grid">
+                <div class="practice-card">
+                    <div class="practice-icon">⚖</div>
+                    <h3 class="practice-title">Criminal Defense</h3>
+                    <p class="practice-description">
+                        Aggressive representation in state and federal courts. We protect your rights and 
+                        fight for your freedom at every stage of the criminal justice process.
+                    </p>
+                    <a href="#" class="practice-link">Learn More</a>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">👨‍👩‍👧</div>
+                    <h3 class="practice-title">Family Law</h3>
+                    <p class="practice-description">
+                        Compassionate guidance through divorce, custody, and family matters. We protect 
+                        your children and assets while helping you move forward with confidence.
+                    </p>
+                    <a href="#" class="practice-link">Learn More</a>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">🏛</div>
+                    <h3 class="practice-title">Civil Litigation</h3>
+                    <p class="practice-description">
+                        Sophisticated advocacy in complex civil disputes. From personal injury to professional 
+                        licensure defense, we deliver results when it matters most.
+                    </p>
+                    <a href="#" class="practice-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Bar -->
+    <section class="locations-bar" id="locations">
+        <div class="locations-content">
+            <h3 class="locations-title">Our Offices</h3>
+            <div class="locations-list">
+                <div class="location-item">
+                    <div class="location-name">Kansas City</div>
+                    <a href="tel:816-673-3900" class="location-phone">816-673-3900</a>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Overland Park</div>
+                    <a href="tel:913-948-9490" class="location-phone">913-948-9490</a>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Lawrence</div>
+                    <a href="tel:785-856-0143" class="location-phone">785-856-0143</a>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Topeka</div>
+                    <a href="tel:785-234-3272" class="location-phone">785-234-3272</a>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Wichita</div>
+                    <a href="tel:316-262-9393" class="location-phone">316-262-9393</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
